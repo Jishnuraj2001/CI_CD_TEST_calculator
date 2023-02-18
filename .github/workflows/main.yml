@@ -1,1 +1,22 @@
 
+
+name: calculator
+on:
+ push:
+  branches:
+   - main
+
+jobs: 
+ cal:
+  runs-on: ubuntu-latest
+  steps:
+   - name: checkout
+     uses: actions/checkout@v3
+   - name: install node
+     uses: actions/setup-node@v2
+     with:
+      node-version: "18.x"
+   - name: install packages
+     run: npm i
+   - name: executing
+     run: npm t
